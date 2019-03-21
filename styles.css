@@ -1,14 +1,21 @@
 body {
   height: 100vh;
   width: 100vw;
+  background-color: #fafafa;
 }
+h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
 .outerContainer {
   display: block;
   margin: auto;
   border: 75px solid #df0000;
-  border-radius: 75px;
-  height: 500px;
-  width: 500px;
+  border-radius: 30px;
+  height: 450px;
+  width: 450px;
 }
 
 .innerContainer {
@@ -17,25 +24,26 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-.workingDivs {
-  background-color: white;
+  background-color: #b2ada7;
+  outline: 10px solid #df0000;
+  box-shadow: 0 0 0 10px #df0000;
+  border-radius: 15px;
 }
 
 .button {
   padding: 10px 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px;
+  margin: 5px;
 }
 
 button {
   background-color: #df0000;
   color: #0d0d0d;
-  padding: 5px 10px;
+  padding: 7px 20px;
   border-radius: 5px;
-
+  margin: 5px;
+  font-size: 16px;
 }

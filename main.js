@@ -1,35 +1,29 @@
-var grid = prompt ('Enter grid size. (Bigger number means smaller sections', '50');
-const start = document.getElementById('start');
-const clear = document.getElementById('clear');
+var grid = prompt('Enter grid size. (Bigger number means smaller sections', '20');
+console.log(grid);
+createArea(grid);
 const reset = document.getElementById('reset');
 const colors = document.getElementById('colors');
+let area = grid * grid;
 
-start.addEventListener('click', e => {
-  createArea(grid);
-});
-
-clear.addEventListener('click', e => {
-  const playArea = document.querySelector('.innerContainer');
-  while (playArea.hasChildNodes){
-    playArea.removeChild(playArea.firstChild);
-  }
-});
 
 reset.addEventListener('click', e => {
-  grid = prompt ('Enter grid size. (Bigger number means smaller sections', '20');
+  for (let i = 0; i < area; i++){
+    const workingDivs = document.querySelector('.workingDivs').remove();
+  }
+  var grid = prompt('Enter grid size. (Bigger number means smaller sections)', '20');
+  createArea(grid);
+  console.log(grid);
 });
 
 colors.addEventListener('change', e => {
-  console.log(e);
-  if (event.target.checked == true){
+  if (event.target.checked == true) {
     document.addEventListener('mouseover', e => {
-      let color = ['red', 'blue', 'green', 'orange', 'purple', 'yello'][Math.floor(Math.random() * 6 )];
+      let color = Math.floor(Math.random() * 1000000);
       if (e.target.classList.contains('workingDivs')) {
-        e.target.style.backgroundColor = color;
+        e.target.style.backgroundColor = `#${color}`;
       }
     });
-  }
-  else {
+  } else {
     document.addEventListener('mouseover', e => {
       if (e.target.classList.contains('workingDivs')) {
         e.target.style.backgroundColor = 'black';
@@ -38,14 +32,14 @@ colors.addEventListener('change', e => {
   }
 });
 
-function createArea(grid){
-  const innerContainer = document.getElementById('innerContainer');
+function createArea(grid) {
   let area = grid * grid;
+  const innerContainer = document.getElementById('innerContainer');
   var innerHeight = innerContainer.offsetHeight;
   var innerWidth = innerContainer.offsetWidth;
   var height = (innerHeight / grid);
   var width = (innerWidth / grid);
-  for (let i = 0; i < area; i++){
+  for (let i = 0; i < area; i++) {
     const addDiv = document.createElement('div');
     const playArea = document.querySelector('.innerContainer');
     addDiv.classList.add('workingDivs');
@@ -55,14 +49,11 @@ function createArea(grid){
   }
 }
 
-
-
 document.addEventListener('mouseover', e => {
   if (e.target.classList.contains('workingDivs')) {
     e.target.style.backgroundColor = 'black';
   }
 });
-
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains('workingDivs')) {
