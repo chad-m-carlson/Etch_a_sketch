@@ -8,7 +8,10 @@ let area = grid * grid;
 
 reset.addEventListener('click', e => {
   for (let i = 0; i < area; i++){
-    const workingDivs = document.querySelector('.workingDivs').remove();
+    const workingDivs = document.querySelectorAll('#workingDivs')
+    workingDivs.forEach(element => {
+      element.remove()
+    });
   }
   var grid = prompt('Enter grid size. (Bigger number means smaller sections)', '20');
   createArea(grid);
@@ -57,6 +60,6 @@ document.addEventListener('mouseover', e => {
 
 document.addEventListener('click', e => {
   if (e.target.classList.contains('workingDivs')) {
-    e.target.style.backgroundColor = 'white';
+    e.target.style.backgroundColor = '#b2ada7';
   }
 });
